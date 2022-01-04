@@ -5,17 +5,24 @@
  */
 package StudentManagementSystem;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MukozaDuncanMwesigwa
  */
 public class TeachersAccount extends javax.swing.JFrame {
+    
+    Connection conn=null;
 
     /**
      * Creates new form TeachersAccount
      */
     public TeachersAccount() {
         initComponents();
+        conn = DBConnect.connect();
     }
 
     /**
@@ -61,21 +68,21 @@ public class TeachersAccount extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        resultsstudentid = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        resultsscience = new javax.swing.JTextField();
+        resultsenglish = new javax.swing.JTextField();
+        resultssst = new javax.swing.JTextField();
+        resultsmath = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        resultsexam = new javax.swing.JTextField();
+        resultscancelbtn = new javax.swing.JButton();
+        resultssubmitbtn = new javax.swing.JButton();
+        teacherlogoutbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -306,6 +313,12 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Student ID:");
 
+        resultsstudentid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultsstudentidActionPerformed(evt);
+            }
+        });
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Results.");
 
@@ -324,9 +337,14 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setText("Exam:");
 
-        jButton4.setText("CANCEL");
+        resultscancelbtn.setText("CANCEL");
 
-        jButton5.setText("SUBMIT");
+        resultssubmitbtn.setText("SUBMIT");
+        resultssubmitbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultssubmitbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -345,8 +363,8 @@ public class TeachersAccount extends javax.swing.JFrame {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel15)
-                                .addComponent(jTextField6)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)))
+                                .addComponent(resultsstudentid)
+                                .addComponent(resultsexam, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)))
                         .addGap(85, 85, 85)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,15 +376,15 @@ public class TeachersAccount extends javax.swing.JFrame {
                                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))))
+                                    .addComponent(resultsscience)
+                                    .addComponent(resultsenglish)
+                                    .addComponent(resultssst)
+                                    .addComponent(resultsmath, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(206, 206, 206)
-                        .addComponent(jButton4)
+                        .addComponent(resultscancelbtn)
                         .addGap(180, 180, 180)
-                        .addComponent(jButton5)))
+                        .addComponent(resultssubmitbtn)))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -381,30 +399,30 @@ public class TeachersAccount extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resultsstudentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(resultsscience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultsenglish, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resultssst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultsexam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resultsmath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(resultscancelbtn)
+                    .addComponent(resultssubmitbtn))
                 .addGap(21, 21, 21))
         );
 
@@ -427,10 +445,10 @@ public class TeachersAccount extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Record a Student`s Marks", jPanel3);
 
-        jButton1.setText("LOGOUT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        teacherlogoutbtn.setText("LOGOUT");
+        teacherlogoutbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                teacherlogoutbtnActionPerformed(evt);
             }
         });
 
@@ -441,7 +459,7 @@ public class TeachersAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(teacherlogoutbtn)
                 .addContainerGap())
             .addComponent(jTabbedPane1)
         );
@@ -450,7 +468,7 @@ public class TeachersAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(teacherlogoutbtn)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1)
@@ -460,16 +478,39 @@ public class TeachersAccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void teacherlogoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherlogoutbtnActionPerformed
         LoginForm frame2 = new LoginForm();
         TeachersAccount.this.setVisible(false);
         frame2.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_teacherlogoutbtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void resultsstudentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultsstudentidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultsstudentidActionPerformed
+
+    private void resultssubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultssubmitbtnActionPerformed
+        // TODO add your handling code here:
+        String studentid=resultsstudentid.getText();
+        String exam=resultsexam.getText();
+        String science=resultsscience.getText();
+        String english=resultsenglish.getText();
+        String sst=resultssst.getText();
+        String math=resultsmath.getText();
+        
+        try {
+            String q="INSERT INTO `studentsresults`(`studentid`, `science`, `english`, `socialstudies`, `mathematics`, `exam`) VALUES ('"+studentid+"','"+science+"','"+english+"','"+sst+"','"+math+"','"+exam+"'')";
+            PreparedStatement pst=conn.prepareStatement(q);
+            pst.execute();
+            JOptionPane.showMessageDialog(rootPane,"Information successfully submitted.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_resultssubmitbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,11 +548,8 @@ public class TeachersAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -545,16 +583,19 @@ public class TeachersAccount extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton resultscancelbtn;
+    private javax.swing.JTextField resultsenglish;
+    private javax.swing.JTextField resultsexam;
+    private javax.swing.JTextField resultsmath;
+    private javax.swing.JTextField resultsscience;
+    private javax.swing.JTextField resultssst;
+    private javax.swing.JTextField resultsstudentid;
+    private javax.swing.JButton resultssubmitbtn;
+    private javax.swing.JButton teacherlogoutbtn;
     // End of variables declaration//GEN-END:variables
 }

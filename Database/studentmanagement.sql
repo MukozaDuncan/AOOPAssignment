@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 01, 2022 at 12:38 PM
+-- Generation Time: Jan 14, 2022 at 03:15 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `studentsresults` (
   `english` int NOT NULL,
   `socialstudies` int NOT NULL,
   `mathematics` int NOT NULL,
-  `exam` varchar(100) NOT NULL,
+  `exam` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   KEY `studentid` (`studentid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

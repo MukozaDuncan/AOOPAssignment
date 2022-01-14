@@ -18,11 +18,12 @@ public class DBConnect {
     public static Connection connect(){
         Connection con=null;
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagement?","root","");
-            JOptionPane.showMessageDialog(null,"connection successfull");
+//            JOptionPane.showMessageDialog(null,"connection successfull");
         } catch (Exception e) {
-            System.out.println("inter.DBConnect.connect()");
+            JOptionPane.showMessageDialog(null,"Database connection unsuccessfull.");
+//            System.out.println("inter.DBConnect.connect()");
         }
         return con;
     }

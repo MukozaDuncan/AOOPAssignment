@@ -52,18 +52,18 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        registerFirstName = new javax.swing.JTextField();
+        registerLastName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        registerAge = new javax.swing.JTextField();
+        registerClass = new javax.swing.JTextField();
+        registerStudentBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        registerPassword = new javax.swing.JTextField();
+        registerGender = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -191,7 +191,13 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Last Name:");
 
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        registerFirstName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        registerLastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerLastNameActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Gender:");
@@ -202,10 +208,10 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Class:");
 
-        jButton2.setText("SUBMIT");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        registerStudentBtn.setText("SUBMIT");
+        registerStudentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                registerStudentBtnActionPerformed(evt);
             }
         });
 
@@ -214,7 +220,12 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Password:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
+        registerGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
+        registerGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerGenderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -236,18 +247,18 @@ public class TeachersAccount extends javax.swing.JFrame {
                             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(63, 63, 63)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(registerFirstName)
+                            .addComponent(registerLastName)
+                            .addComponent(registerAge)
+                            .addComponent(registerClass, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                            .addComponent(registerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerGender, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(28, 28, 28)
-                .addComponent(jButton2)
+                .addComponent(registerStudentBtn)
                 .addGap(33, 33, 33))
         );
         jPanel5Layout.setVerticalGroup(
@@ -258,31 +269,31 @@ public class TeachersAccount extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(registerStudentBtn)
                     .addComponent(jButton3)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -338,6 +349,11 @@ public class TeachersAccount extends javax.swing.JFrame {
         jLabel15.setText("Exam:");
 
         resultscancelbtn.setText("CANCEL");
+        resultscancelbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultscancelbtnActionPerformed(evt);
+            }
+        });
 
         resultssubmitbtn.setText("SUBMIT");
         resultssubmitbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -485,9 +501,28 @@ public class TeachersAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_teacherlogoutbtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void registerStudentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerStudentBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        String firstname=registerFirstName.getText();
+        String lastname=registerLastName.getText();
+        Object gender=registerGender.getSelectedItem();
+        String age=registerAge.getText();
+        String studclass=registerClass.getText();
+        String pass=registerPassword.getText();
+        String studid = "stud-3";
+        
+        try {
+            String studcredregisterstmt="INSERT INTO `studentcredentials`(`id`, `password`) VALUES ('"+studid+"','"+pass+"')";
+            PreparedStatement pst1=conn.prepareStatement(studcredregisterstmt);
+            pst1.execute();
+            String studregisterstmt="INSERT INTO `students`(`studentid`, `firstname`, `surname`, `sex`, `age`, `class`) VALUES ('"+studid+"','"+firstname+"','"+lastname+"','"+gender+"','"+age+"','"+studclass+"')";
+            PreparedStatement pst=conn.prepareStatement(studregisterstmt);
+            pst.execute();
+            JOptionPane.showMessageDialog(rootPane,"Information successfully submitted.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_registerStudentBtnActionPerformed
 
     private void resultsstudentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultsstudentidActionPerformed
         // TODO add your handling code here:
@@ -503,7 +538,7 @@ public class TeachersAccount extends javax.swing.JFrame {
         String math=resultsmath.getText();
         
         try {
-            String q="INSERT INTO `studentsresults`(`studentid`, `science`, `english`, `socialstudies`, `mathematics`, `exam`) VALUES ('"+studentid+"','"+science+"','"+english+"','"+sst+"','"+math+"','"+exam+"'')";
+            String q="INSERT INTO `studentsresults`(`studentid`, `science`, `english`, `socialstudies`, `mathematics`, `exam`) VALUES ('"+studentid+"','"+science+"','"+english+"','"+sst+"','"+math+"','"+exam+"')";
             PreparedStatement pst=conn.prepareStatement(q);
             pst.execute();
             JOptionPane.showMessageDialog(rootPane,"Information successfully submitted.");
@@ -511,6 +546,18 @@ public class TeachersAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e);
         }
     }//GEN-LAST:event_resultssubmitbtnActionPerformed
+
+    private void resultscancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultscancelbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resultscancelbtnActionPerformed
+
+    private void registerGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerGenderActionPerformed
+
+    private void registerLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerLastNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -548,10 +595,8 @@ public class TeachersAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -582,12 +627,14 @@ public class TeachersAccount extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField registerAge;
+    private javax.swing.JTextField registerClass;
+    private javax.swing.JTextField registerFirstName;
+    private javax.swing.JComboBox registerGender;
+    private javax.swing.JTextField registerLastName;
+    private javax.swing.JTextField registerPassword;
+    private javax.swing.JButton registerStudentBtn;
     private javax.swing.JButton resultscancelbtn;
     private javax.swing.JTextField resultsenglish;
     private javax.swing.JTextField resultsexam;
